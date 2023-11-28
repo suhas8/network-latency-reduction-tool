@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Latency Reduction Tool</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        h1 {
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        p {
+            color: #555;
+            text-align: center;
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #555;
+            z-index: 1;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <!-- Replace with the actual path to your video file -->
+        <source src="2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h1>COMPUTER NETWORKS MINI PROJECT</h1>
+    <p>Enter the website URL:</p>
+    <input type="text" id="websiteInput" placeholder="https://example.com">
+    <button onclick="navigateToWebsite()">Go</button>
+
+    <script>
+        function navigateToWebsite() {
+            const websiteUrl = $('#websiteInput').val();
+
+            if (!isValidUrl(websiteUrl)) {
+                alert('Please enter a valid website URL.');
+                return;
+            }
+
+            window.location.href = websiteUrl;
+        }
+
+        function isValidUrl(url) {
+            const urlPattern = /^https?:\/\/\S+/;
+            return urlPattern.test(url);
+        }
+    </script>
+</body>
+</html>
